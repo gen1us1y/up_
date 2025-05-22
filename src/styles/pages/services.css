@@ -1,0 +1,13 @@
+@media (max-width: 767px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .pricing-table {
+      overflow-x: auto;
+    }
+  
+    table {
+      min-width: 600px;
+    }
+  }
