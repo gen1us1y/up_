@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Header from '../components/Header' // Убедитесь, что импортирован Header
+import Header from '../components/Header' 
 import Footer from '../components/Footer'
 import '../styles/pages/contact.css'
 
@@ -30,7 +30,6 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Здесь будет логика отправки формы
     alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.')
     setFormData({
       name: '',

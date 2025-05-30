@@ -1,8 +1,17 @@
 import TeamMember from '../components/TeamMember'
-import ReviewCard from '../components/ReviewCard'
+import { useState, useEffect, useContext } from 'react';
+import { ApiContext } from '../contexts/ApiContext';
+import ReviewForm from '../components/ReviewForm';
+import ReviewCard from '../components/ReviewCard';
+import '../styles/components/reviews.css'
 import '../styles/pages/about.css'
 
-function About() {
+export default function About() {
+  const { API_URL } = useContext(ApiContext);
+  const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
 
   const features = [
     {
@@ -22,24 +31,31 @@ function About() {
     }
   ]
 
-  const reviews = [
-    {
-      id: 1,
-      author: 'Артем "Re1nforce" Иванов',
-      text: 'Играл здесь на последнем турнире по Dota 2 — лучшая организация из всех, где я был! Буду возвращаться снова.',
-      rating: 5,
-      date: '12.05.2025',
-      avatar: '/images/reviews/avatar1.jpg'
-    },
-    {
-      id: 2,
-      author: 'Карина "Aurora" Смирнова',
-      text: 'Как девушка-геймер оценила дружелюбную атмосферу. Ни разу не столкнулась с хейтом, только с поддержкой!',
-      rating: 5,
-      date: '05.05.2025',
-      avatar: '/images/reviews/avatar2.jpg'
-    }
-  ]
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await fetch(`${API_URL}/reviews`);
+        if (!response.ok) throw new Error('Ошибка загрузки отзывов');
+        const data = await response.json();
+        setReviews(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchReviews();
+  }, [API_URL]);
+
+  // Обработчик добавления нового отзыва
+  const handleNewReview = (newReview) => {
+    setReviews([newReview, ...reviews]);
+  };
+
+  if (isLoading) return <div>Загрузка отзывов...</div>;
+  if (error) return <div>Ошибка: {error}</div>;
+
 
   return (
     <div className="about-page">
@@ -87,16 +103,25 @@ function About() {
         </div>
       </section>
 
-      <section className="reviews-section">
-        <div className="container">
-          <h2>Что говорят геймеры</h2>
-          <div className="reviews-grid">
-            {reviews.map(review => (
-              <ReviewCard key={review.id} review={review} />
-            ))}
-          </div>
-        </div>
-      </section>
+		<div className="about-page">
+		  <section className="reviews-section">
+			<h2>Отзывы наших клиентов</h2>
+			
+			<div className="reviews-list">
+			  {reviews.map(review => (
+				<ReviewCard 
+				  key={review.id} 
+				  review={review} 
+				/>
+			  ))}
+			</div>
+			
+			<ReviewForm onReviewAdded={handleNewReview} />
+			
+		  </section>
+		</div>
+	  );
+	}
 
       <section className="join-section">
         <div className="container">
@@ -108,5 +133,3 @@ function About() {
     </div>
   )
 }
-
-export default About

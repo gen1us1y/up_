@@ -1,3 +1,76 @@
+.events-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.events-list {
+  list-style: none;
+  padding: 0;
+}
+
+.event-item {
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-actions {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.delete-btn {
+  background: #ff6b6b;
+  color: white;
+}
+
+.submit-btn {
+  background: #4CAF50;
+  color: white;
+}
+
+.event-form {
+  background: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
 @media (max-width: 767px) {
     .event-card {
       flex-direction: column;
@@ -8,3 +81,4 @@
       height: 150px;
     }
   }
+

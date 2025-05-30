@@ -26,23 +26,6 @@ function Home() {
     }
   ]
 
-  const news = [
-    {
-      id: 1,
-      title: 'Новый сезон киберлиги',
-      description: 'Регистрация на осенний чемпионат открыта до 30 сентября',
-      date: '15.09.2023',
-      tag: 'Турниры'
-    },
-    {
-      id: 2,
-      title: '24/7 - теперь и в выходные!',
-      description: 'С пятницы по воскресенье работаем без перерывов',
-      date: '01.09.2023',
-      tag: 'Акция'
-    }
-  ]
-
   const stats = [
     { value: "150+", label: "Довольных клиентов" },
     { value: "20+", label: "Проведённых турниров" },
@@ -59,7 +42,6 @@ function Home() {
 
   return (
     <div className="home-page">
-      {/* Hero Slider */}
       <section className="hero-slider">
         {slides.map((slide, index) => (
           <div 
@@ -117,17 +99,6 @@ function Home() {
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="news-section">
-        <div className="container">
-          <h2>Что нового?</h2>
-          <div className="news-grid">
-            {news.map(item => (
-              <NewsBanner key={item.id} news={item} />
-            ))}
           </div>
         </div>
       </section>
