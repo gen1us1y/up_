@@ -19,7 +19,7 @@
 ### 1. Клонирование репозитория
 ```bash
 git clone https://github.com/gen1us1y/up_
-cd cyberzone
+cd up
 ```
 
 ### 2. Установка зависимостей
