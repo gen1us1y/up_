@@ -20,18 +20,22 @@
 ```bash
 git clone https://github.com/gen1us1y/up_
 cd cyberzone
+```
 
 ### 2. Установка зависимостей
 ```bash
 npm install
+```
 
 ### 3. Запуск сервера разработки
 ``` bash
 npm run dev
+```
 
 ### 4. Запуск фейкового API сервера (в отдельном терминале)
 ``` bash
 npm run server
+```
 
 ## Ссылки
 Figma макет <!-- https://www.figma.com/design/eSHD0yvblcgnOptDyhFrEb/Untitled?node-id=0-1&t=MxWR3ef5kMa0ryK2-1 -->
