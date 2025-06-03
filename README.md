@@ -38,6 +38,6 @@ npm run server
 ```
 
 ## Ссылки
-Figma макет <!-- https://www.figma.com/design/eSHD0yvblcgnOptDyhFrEb/Untitled?node-id=0-1&t=MxWR3ef5kMa0ryK2-1 -->
+[Figma макет](https://www.figma.com/design/eSHD0yvblcgnOptDyhFrEb/Untitled?node-id=0-1&t=MxWR3ef5kMa0ryK2-1)
 
-GitHub репозиторий <!-- https://github.com/gen1us1y/up_  -->
+[GitHub репозиторий](https://github.com/gen1us1y/up_)
